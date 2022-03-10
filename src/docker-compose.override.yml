@@ -1,0 +1,14 @@
+version: '3.9'
+
+services:
+  pdf-streaming:
+    environment:
+        - ASPNETCORE_ENVIRONMENT=Development
+        - ASPNETCORE_URLS=https://+:443;http://+:80
+        - ASPNETCORE_Kestrel__Certificates__Default__Password=somepassword
+        - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/aspnetapp.pfx
+    ports:
+      - 7000:80
+      - 7100:443
+    volumes:
+      - ~/.aspnet/https:/https:ro

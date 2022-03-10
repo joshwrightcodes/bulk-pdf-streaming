@@ -6,13 +6,14 @@ EXPOSE 443
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
 COPY ["PdfStreaming/PdfStreaming.csproj", "PdfStreaming/"]
-RUN dotnet restore "PdfStreaming/PdfStreaming.csproj"
+RUN dotnet restore PdfStreaming/PdfStreaming.csproj
+
 COPY . .
-WORKDIR "/src/PdfStreaming"
-RUN dotnet build "PdfStreaming.csproj" -c Release -o /app/build
+WORKDIR /src/PdfStreaming
+RUN dotnet build PdfStreaming.csproj -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "PdfStreaming.csproj" -c Release -o /app/publish
+RUN dotnet publish PdfStreaming.csproj -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app
