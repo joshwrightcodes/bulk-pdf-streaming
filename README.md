@@ -5,6 +5,7 @@ Code demonstrates several methods of generating one or more PDF files either as 
 |Endpoint|Parameters|Description|
 |:--|:--|:--|
 |`GET /static-pdf`|`generate` - number of sample documents to generate|Loads an existing PDF file into a zip file without using an intermediate file|
+|`GET /static-s3`|`generate` - number of sample documents to generate|Loads an existing PDF file from S3 into a zip file without using an intermediate file|
 |`GET /dynamic-pdf`|`generate` - number of sample documents to generate|Generates one or more personalised documents using [iText](https://api.itextpdf.com/iText7/dotnet/7.2.1/) and zips them without using any intermediate files|
 |`GET /dynamic-pdf-single`|`generate` - number of sample documents to generate|Generates a single PDF with one or more personalised documents using [iText](https://api.itextpdf.com/iText7/dotnet/7.2.1/) without using any intermediate files|
 
