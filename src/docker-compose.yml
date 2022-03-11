@@ -1,0 +1,18 @@
+version: '3.9'
+
+services:
+  localstack:
+    image: localstack/localstack
+    network_mode: bridge
+    restart: always
+    
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+
+#  pdf-streaming:
+#    image: pdf-streaming
+#    build:
+#      context: .
+#      dockerfile: PdfStreaming/Dockerfile
+#    depends_on:
+#      - localstack

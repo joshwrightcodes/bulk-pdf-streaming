@@ -1,0 +1,24 @@
+version: '3.9'
+
+services:
+  localstack:
+    ports:
+      - "4566:4566"  # S3 Port
+    environment:
+      - SERVICES=s3
+      - DATA_DIR=/tmp/localstack/data
+    volumes:
+      - ./stubs/s3:/tmp/localstack
+
+#  pdf-streaming:
+#    environment:
+#      - ASPNETCORE_ENVIRONMENT=Development
+#      - ASPNETCORE_URLS=https://+:443;http://+:80
+#      - ASPNETCORE_Kestrel__Certificates__Default__Password=${ASPNET_CERT_PASS:-password}
+#      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/aspnetapp.pfx
+#      - LocalStack_Config_LocalStackHost=localstack
+#    ports:
+#      - "7000:80"
+#      - "7100:443"
+#    volumes:
+#      - ~/.aspnet/https:/https:ro

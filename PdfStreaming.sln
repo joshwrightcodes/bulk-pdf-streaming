@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PdfStreaming", "PdfStreaming\PdfStreaming.csproj", "{7C2EA1E3-369D-445C-BFF7-6635FE9B7E2E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PdfStreaming", "src\PdfStreaming\PdfStreaming.csproj", "{7C2EA1E3-369D-445C-BFF7-6635FE9B7E2E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
