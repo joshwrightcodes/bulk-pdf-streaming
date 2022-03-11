@@ -5,19 +5,14 @@ services:
     image: localstack/localstack
     network_mode: bridge
     restart: always
-    ports:
-        - "4510-4559:4510-4559"  # external service port range
-        - "4566:4566"            # LocalStack Edge Proxy
-    environment:
-      - SERVICES=s3
+    
     volumes:
-      - "${TMPDIR:-/tmp}/localstack:/tmp/localstack"
       - "/var/run/docker.sock:/var/run/docker.sock"
 
-  pdf-streaming:
-    image: pdf-streaming
-    build:
-      context: .
-      dockerfile: PdfStreaming/Dockerfile
-    depends_on:
-      - localstack
+#  pdf-streaming:
+#    image: pdf-streaming
+#    build:
+#      context: .
+#      dockerfile: PdfStreaming/Dockerfile
+#    depends_on:
+#      - localstack
