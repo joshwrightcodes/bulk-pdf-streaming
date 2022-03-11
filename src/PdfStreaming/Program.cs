@@ -98,13 +98,14 @@ app.MapGet("/dynamic-pdf", async (
 
     for (var i = 1; i <= docCount; i++)
     {
-        var filename = $"dynamic-pdf_{i,0000000000}.pdf";
+        var filename = $"dynamic-pdf_{i:0000000000}.pdf";
         var entry = archive.CreateEntry(filename);
         await using var entryStream = entry.Open();
         var pdfWriter = new PdfWriter(entryStream);
         var pdfDocument = new PdfDocument(pdfWriter);
         var document = new Document(pdfDocument);
-        var header = new Paragraph($"Document {i,0000000000}")
+
+        var header = new Paragraph($"Document {i:0000000000}")
             .SetTextAlignment(TextAlignment.CENTER)
             .SetFontSize(20);
 
@@ -129,7 +130,8 @@ app.MapGet("/dynamic-pdf-single", async (
     for (var i = 1; i <= docCount; i++)
     {
         if (i > 1) document.Add(new AreaBreak()); // add new page
-        var para = new Paragraph($"Document {i,0000000000}")
+
+        var para = new Paragraph($"Document {i:0000000000}")
             .SetTextAlignment(TextAlignment.CENTER)
             .SetFontSize(20);
 
